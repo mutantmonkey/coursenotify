@@ -6,14 +6,11 @@ import config
 from emailgateway import EmailGateway
 from time import sleep
 
-url = "https://banweb.banner.vt.edu/ssb/prod/HZSKVTSC.P_ProcRequest"
-crns = [12013]
-
 nosectex = b"NO SECTIONS FOUND FOR THIS INQUIRY."
 
 postdata = {
-	'CAMPUS' : 0,
-	'TERMYEAR': 201101,
+	'CAMPUS' : config.campus,
+	'TERMYEAR': config.termyear,
 	'CORE_CODE' : "AR%",
 	'SUBJ_CODE' : "%",
 	'SCHDTYPE' : "%",
@@ -25,7 +22,7 @@ postdata = {
 gateway = EmailGateway(config.from_addr, config.smtp_host, config.smtp_port, config.smtp_tls, config.smtp_user, config.smtp_pass)
 
 def check_sections():
-	for crn in crns:
+	for crn in config.crns:
 		postdata['crn'] = crn
 		postdata['open_only'] = ""
 
@@ -40,7 +37,7 @@ def check_sections():
 		# check to see if there are open seats
 		postdata['open_only'] = "on"
 		encoded = urllib.parse.urlencode(postdata)
-		page = urllib.request.urlopen(url, data=encoded)
+		page = urllib.request.urlopen(config.url, data=encoded)
 		result = page.read()
 
 		if re.search(nosectex, result) is None:
