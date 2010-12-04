@@ -1,4 +1,5 @@
 coursenotify
+============
 
 This script is intended to be run via cron and will send out email notifications when a course opens on a Banner-based course registration system.
 
