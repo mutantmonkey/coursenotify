@@ -14,7 +14,8 @@ class EmailGateway:
 		else:
 			self.conn = SMTP(self.smtp_host, self.smtp_port)
 
-		self.conn.login(self.smtp_user, self.smtp_pass)
+		if len(self.smtp_user) > 0:
+			self.conn.login(self.smtp_user, self.smtp_pass)
 
 	def send(self, recip, subj, msg_text):
 		msg = "From: %s\nTo: %s\nSubject: %s\n\n%s" % (self.from_addr, recip, subj, msg_text)
