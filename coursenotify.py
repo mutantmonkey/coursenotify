@@ -7,6 +7,8 @@ from emailgateway import EmailGateway
 from time import sleep
 
 nosectex = b"NO SECTIONS FOUND FOR THIS INQUIRY."
+coursenrex = b"<TD class=deleft style=background-color:WHITE>\n<FONT SIZE=\"1\">(.+?)<\/FONT>\n<\/TD>"
+coursetitex = b"<TD class=deleft style=background-color:WHITE>(.+?)<\/TD>"
 
 postdata = {
 	'CAMPUS' : config.campus,
@@ -35,14 +37,24 @@ def check_sections():
 			#print("CRN %d: Section does not exist" % crn)
 
 		# check to see if there are open seats
-		postdata['open_only'] = "on"
+		#postdata['open_only'] = "on"
 		encoded = urllib.parse.urlencode(postdata)
 		page = urllib.request.urlopen(config.url, data=encoded)
 		result = page.read()
 
 		if re.search(nosectex, result) is None:
+			coursenr = re.search(coursenrex, result).group(1).decode('ascii')
+			coursetitle = re.search(coursetitex, result).group(1).decode('ascii')
+
 			#print("CRN %d: Section open" % crn)
-			gateway.send(config.notify_addr, "CRN %d Open" % crn, "The section with CRN %d is now open" % crn)
+			gateway.send(config.notify_addr, "coursenotify: %s open" % coursenr, """Hello,
+
+This message is to inform you that at last run, coursenotify
+found an open seat in %s %s, CRN %d.
+
+You will continue to receive notifications the next time coursenotify
+runs unless you remove this CRN from your configuration.
+""" % (coursenr, coursetitle, crn))
 		#else:
 		#	print("CRN %d: Section full" % crn)
 
