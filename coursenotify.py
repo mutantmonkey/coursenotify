@@ -38,7 +38,7 @@ def check_sections():
 
 		# check to see if there are open seats
 		postdata['open_only'] = "on"
-		encoded = urllib.parse.urlencode(postdata)
+		encoded = urllib.parse.urlencode(postdata).encode('ascii')
 		page = urllib.request.urlopen(config.url, data=encoded)
 		result = page.read()
 
