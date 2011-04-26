@@ -47,7 +47,7 @@ def check_sections():
 			coursetitle = re.search(coursetitex, result).group(1).decode('ascii')
 
 			#print("CRN %d: Section open" % crn)
-			gateway.send(config.notify_addr, "coursenotify: %s open" % coursenr, """Hello,
+			gateway.send(config.notify_addr, "[coursenotify] %s open" % coursenr, """Hello,
 
 This message is to inform you that at last run, coursenotify
 found an open seat in %s %s, CRN %d.
