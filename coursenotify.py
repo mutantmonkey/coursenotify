@@ -1,4 +1,14 @@
 #!/usr/bin/python
+#################################################################################
+# coursenotify.py - Course Notify
+# Receive email notifications when a course opens up on a Banner-based course
+# registration system.
+# Licensed under the New BSD License.
+#
+# https://github.com/mutantmonkey/coursenotify
+# author: mutantmonkey <mutantmonkey@gmail.com>
+################################################################################
+
 import urllib.parse, urllib.request, urllib.error
 import re
 

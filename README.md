@@ -2,8 +2,13 @@ coursenotify
 ============
 
 This script is intended to be run via cron and will send out email notifications when a course opens on a Banner-based course registration system.
+Licensed under the New BSD License.
 
-To use it, you'll need a config.py file that looks something like this:
+## Prerequisites ##
+* Python 3.x
+
+## Usage ##
+You'll need a config.py file that looks something like this:
 
 	url = "https://banweb.banner.vt.edu/ssb/prod/HZSKVTSC.P_ProcRequest"
 	crns = []
