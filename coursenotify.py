@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #################################################################################
 # coursenotify.py - Course Notify
 # Receive email notifications when a course opens up on a Banner-based course
