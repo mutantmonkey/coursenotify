@@ -3,7 +3,7 @@
 # coursenotify.py - Course Notify
 # Receive email notifications when a course opens up on a Banner-based course
 # registration system.
-# Licensed under the New BSD License.
+# Licensed under the ISC License.
 #
 # https://github.com/mutantmonkey/coursenotify
 # author: mutantmonkey <mutantmonkey@gmail.com>
@@ -69,4 +69,3 @@ runs unless you remove this CRN from your configuration.
 		#	print("CRN %d: Section full" % crn)
 
 check_sections()
-

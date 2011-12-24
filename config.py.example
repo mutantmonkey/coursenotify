@@ -1,0 +1,13 @@
+url = "https://banweb.banner.vt.edu/ssb/prod/HZSKVTSC.P_ProcRequest"
+crns = []
+
+campus = 0
+termyear = 201109
+
+from_addr = ""
+
+smtp_host = "smtp.gmail.com"
+smtp_port = 465
+smtp_tls = True
+smtp_user = ""
+smtp_pass = ""

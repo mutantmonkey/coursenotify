@@ -24,4 +24,3 @@ class EmailGateway:
 
 	def quit(self):
 		self.conn.quit()
-
