@@ -8,5 +8,6 @@ Licensed under the ISC License.
 ## Prerequisites ##
 * Python 3.x
 
-## Usage ## Copy `config.py.example` to `config.py`, fill in the blanks, and
-change the URL to point to your school's course timetable.
+## Usage ##
+Copy `config.py.example` to `config.py`, fill in the blanks, and change the URL
+to point to your school's course timetable.
