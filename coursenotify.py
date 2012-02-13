@@ -6,7 +6,7 @@
 # Licensed under the ISC License.
 #
 # https://github.com/mutantmonkey/coursenotify
-# author: mutantmonkey <mutantmonkey@gmail.com>
+# author: mutantmonkey <mutantmonkey@mutantmonkey.in>
 ##############################################################################
 
 import urllib.error
@@ -17,6 +17,9 @@ import re
 import config
 from emailgateway import EmailGateway
 from time import sleep
+
+__author__ = "mutantmonkey <mutantmonkey@mutantmonkey.in>"
+__license__ = "ISC"
 
 nosectex = b"NO SECTIONS FOUND FOR THIS INQUIRY."
 coursenrex = b"<TD class=deleft style=background-color:WHITE>\n<FONT "\
@@ -59,12 +62,14 @@ def check_sections():
 
         if re.search(nosectex, result) is None:
             try:
-                coursenr = re.search(coursenrex, result).group(1).decode('ascii')
+                coursenr = re.search(coursenrex, result).group(1).decode(
+                        'ascii')
                 coursetitle = re.search(coursetitex, result).group(1).\
                         decode('ascii')
             except AttributeError:
                 # skip broken CRNS
-                print("Warning: CRN {0} does not exist, skipping...".format(crn))
+                print("Warning: CRN {0} does not exist, skipping...".format(
+                    crn))
                 continue
 
             #print("CRN %d: Section open" % crn)
