@@ -2,9 +2,10 @@ url = "https://banweb.banner.vt.edu/ssb/prod/HZSKVTSC.P_ProcRequest"
 crns = []
 
 campus = 0
-termyear = 201109
+termyear = 201209
 
-from_addr = ""
+notify_addr = "you@example.com"
+from_addr = "coursenotify@example.com"
 
 smtp_host = "smtp.gmail.com"
 smtp_port = 465
