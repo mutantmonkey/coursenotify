@@ -7,7 +7,7 @@
 #
 # https://github.com/mutantmonkey/coursenotify
 # author: mutantmonkey <mutantmonkey@mutantmonkey.in>
-##############################################################################
+###############################################################################
 
 import urllib.error
 import urllib.parse
